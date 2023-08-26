@@ -97,6 +97,7 @@ export class Viewer
         // }
         var _self = this
         this.map = new smokemap(this.sceneEx)
+        this.map.maps.init()
         this.people = new AvatarManager(this.sceneEx, this.defaultCamera, this.map.maps)
         this.globalPlane = new THREE.Plane( new THREE.Vector3( 0, 0, -1 ), 0.1 );
         this.globalPlane.constant =10000;//剖切的位置
@@ -213,7 +214,7 @@ export class Viewer
         requestAnimationFrame(this.animate)
 
         this.stats.update()
-        if(this.map.map.length != 0 && !this.map.finish_load)
+        if( !this.map.finish_load)//if(this.map.map.length != 0 && !this.map.finish_load)//
             this.map.init(this.renderer)
         if(this.map.maps.finish_load && this.map.finish_load && this.people.seted){
             this.people.setPos()
