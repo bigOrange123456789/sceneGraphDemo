@@ -8,7 +8,7 @@ export class AvatarManager {
         this.scene = scene
         this.camera = camera
         this.count = count// 人物数量
-        this.persent = [0.5,0.25,0.25]
+        this.persent = [0.5,0.5]
         this.assets = {}//为了防止资源重复加载，相同路径的资源只加载一次
         this.maps = map// 疏散网格
         this.map_edges=[[1321,-1322,786,-751,481]]// 每层地图的边缘及高度
@@ -69,7 +69,7 @@ export class AvatarManager {
             c1.lod_avatarCount=[ 500, 500, 500, 500, 500, 500]
             
             const lodConut=3//10//21
-            const countAll=250//2500*2*10
+            const countAll=100//2500*2*10
             const distanceAll=200//*0.8*0.25//300
             c1.lod_distance=[ ]
             c1.lod_geometry=[ ]
