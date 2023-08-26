@@ -359,6 +359,21 @@ export class AvatarManager {
         }
     }
     update(){
+        if(!window.flag09090909){
+            window.test0000=this
+            for(let i=0;i<this.crowd.length;i++){
+                const crowd=this.crowd[i]
+                for (var i00 = 0; i00 < crowd.count; i00++) {
+                    crowd.setAnimation(
+                        i00,
+                        5,//5,8
+                        Math.random()*10000
+                    )
+                }
+            }
+            
+            window.flag09090909=true
+        }
         for(var j=0;j<this.count;j++){
             let i = this.ids[j]
             let n = 0
