@@ -20,7 +20,7 @@ export class AvatarManager {
         this.ids = []
         this.dp = []
         this.times = []
-        this.seted = true
+        this.seted = false
         this.camerapos = []
     }
     setPos(){// 随机设置人物位置 
