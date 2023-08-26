@@ -14,6 +14,9 @@ export class escapmap{
     init(map, scene=null){
         let floor = []
         let self = this
+        // setTimeout(()=>{
+            
+        // },1000)
         const loader = new THREE.FileLoader();
         loader.load('KaiLiNan4-1.csv', function (value) {
             let x = 0
@@ -31,32 +34,6 @@ export class escapmap{
             });
             self.finish_load = true
         }) 
-        // for(var x = 0; x < map.length; x++){
-        //     let row = []
-        //     for(var y = 0; y < map[x].length; y++){
-        //         row.push(new ceil(map[x][y], [x,y]))
-        //     }
-        //     // floor.push(row)
-        //     this.grids.push(row)
-        // }
-
-        // const ball = new THREE.BufferGeometry()
-        // const ball_v = []
-        // const circleRadius = 1.0; // 圆片的半径
-        // const circleSegments = 32; // 圆片的分段数
-        // for (let i = 0; i <= circleSegments; i++) {
-        //     const theta = (i / circleSegments) * Math.PI * 2; // 计算当前分段的角度
-        //     const x = Math.cos(theta) * circleRadius; // 计算当前分段的x坐标
-        //     const y = Math.sin(theta) * circleRadius; // 计算当前分段的y坐标
-        //     ball_v.push(x, y, 0); // 将顶点坐标添加到数组中
-        // }
-
-        // const positions = new Float32Array(ball_v); // 创建Float32Array类型的顶点坐标数组
-        // ball.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-		// const ball_m = new THREE.MeshBasicMaterial( { color: 0x00ff00 } )
-		// this.balls = new THREE.InstancedMesh( ball, ball_m, 10000)
-        
-        // this.grids.push(this.link(floor))
 
     }
     link(grid){

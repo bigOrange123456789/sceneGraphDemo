@@ -38,13 +38,14 @@ export class smokemap{
                 const list=[]
                 for(let y=0;y<1537;y++){
                     let p = (y*2643+x)*4
-                    let wall=temp[p]?1:0
+                    let wall=temp[p]?0:1
                     self.texture_data[p]=wall
                     self.texture_data[p+1]=self.noise(x,y)
                     list.push(temp[p]?1555:-1)
                 }
                 self.map.push(list)
             }
+            window.texture_data=self.texture_data
         })
         function loadJson(path,cb){   
             var xhr = new XMLHttpRequest()

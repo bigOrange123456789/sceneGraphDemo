@@ -176,6 +176,15 @@ export class Viewer
                 _self.scene.environment = envMap
             }
         )
+        this.getCubeMapTexture('assets/environment/Mans_Outside_2k_panorama_specular.jpg').then(
+            ({ envMap }) => {
+                // console.log(_self.scene)
+                //   _self.scene.backgroundIntensity=0.8
+                //   _self.scene.backgroundIntensity=0.4
+                //   self.unrealBloom.bloomPass.strength=0.55
+                _self.scene.environment = envMap
+            }
+        )
     }
     getCubeMapTexture(path) {
         var scope = this
