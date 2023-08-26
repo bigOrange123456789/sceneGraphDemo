@@ -45,11 +45,14 @@
             }
         ],
         "useColorTag": [
-            "CloW_A_xifu_geo",
-            "CloW_A_kuzi_geo",
-            
-            "CloW_E_shangyi_geo",
-            "CloW_E_kuzi_geo"
+
+            "CloM_A_hair_geo",
+            "CloM_A_chengyi_geo",
+            "CloM_A_lingdai_geo",
+            "CloM_A_xiezi_geo",
+            "CloM_A_xiukou_geo",
+            "CloM_A_xizhuang_geo",
+            "CloM_A_xizhuangku_geo"
         ],
         
 
