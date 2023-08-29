@@ -312,13 +312,11 @@ export class Viewer
                 this.defaultCamera.lookAt(127,56,480)
             }
             else{
-                document.getElementById("start_b").style.display="block"
                 document.getElementById("setfire").style.display="none"
                 document.getElementById("fire_line").style.display="none"
                 this.defaultCamera.position.copy(new THREE.Vector3(this.cp_o[0], this.cp_o[1], this.cp_o[2]))
                 this.defaultCamera.rotation.set(this.cr_o[0], this.cr_o[1], this.cr_o[2])
                 this.globalPlane.constant = 10000
-                this.ifsmoke++
             }
         });
         new ui.Button("Smoke simulation", "#F4A460", '#F4A430', '#FFD700',
@@ -346,7 +344,6 @@ export class Viewer
                 this.defaultCamera.lookAt(127,56,480)
             }
             else{
-                document.getElementById("start_b").style.display="block"
                 document.getElementById("abstract").style.display="none"
                 this.defaultCamera.position.copy(new THREE.Vector3(this.cp_o[0], this.cp_o[1], this.cp_o[2]))
                 this.defaultCamera.rotation.set(this.cr_o[0], this.cr_o[1], this.cr_o[2])

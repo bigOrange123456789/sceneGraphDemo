@@ -31,27 +31,57 @@ export class smokemap{
         this.firemap = new THREE.TextureLoader().load('textures/fire.webp')
         this.fire_t = new TextureAnimator( this.firemap, 12, 6, 72, 55 ); // texture, #horiz, #vert, #total, duration.
         let self = this
-        const loader = new THREE.FileLoader();
-        loader.load('KaiLiNan.csv', function (value) {
-            let i = 0
-            let x = 0
-            value.split('\n').forEach(function(v){
-                let line = []
-                let y = 0
-                v.split(',').forEach(function(w){
+        // const loader = new THREE.FileLoader();
+        // loader.load('KaiLiNan.csv', function (value) {
+        //     let i = 0
+        //     let x = 0
+        //     value.split('\n').forEach(function(v){
+        //         let line = []
+        //         let y = 0
+        //         v.split(',').forEach(function(w){
+        //             let p = (y*2643+x)*4
+        //             let wall = parseInt(w) > 0 ? 1.0 : 0.0
+        //             self.texture_data[p]=wall
+        //             self.texture_data[p+1]=self.noise(x,y)
+        //             y++
+        //             line.push(parseInt(w))
+        //         });
+        //         if(line.length > 6){
+        //             self.map.push(line)
+        //             x++
+        //         }
+        //     });
+        // }) 
+        loadJson("wall_KaiLiNan.json",data=>{
+            const temp={}
+            for(let p of data)temp[p]=true
+            //行数(2643) [Array(列数 1537)
+            //1321,-1322,786,-751,481
+            self.map=[]
+            for(let x=0;x<2643;x++){
+                const list=[]
+                for(let y=0;y<1537;y++){
                     let p = (y*2643+x)*4
-                    let wall = parseInt(w) > 0 ? 1.0 : 0.0
+                    let wall=temp[p]?0:1
                     self.texture_data[p]=wall
                     self.texture_data[p+1]=self.noise(x,y)
-                    y++
-                    line.push(parseInt(w))
-                });
-                if(line.length > 6){
-                    self.map.push(line)
-                    x++
+                    list.push(temp[p]?1555:-1)
                 }
-            });
-        })  
+                self.map.push(list)
+            }
+            window.texture_data=self.texture_data
+        })
+        function loadJson(path,cb){   
+            var xhr = new XMLHttpRequest()
+            xhr.open('GET', path, true)
+            xhr.send()
+            xhr.onreadystatechange = ()=> {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var json_data = JSON.parse(xhr.responseText)
+                    cb(json_data)
+                }
+            }
+        } 
         // loader.load('KaiLiNan4-1.csv', function (value) {
         //     value.split('\n').forEach(function(v){
         //         let line = []
